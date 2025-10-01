@@ -857,62 +857,254 @@ header {
     max-width: 98%;
   }
 }
-        /* Ingredients Section - Horizontal Slider */
-.ingredients {
-    background: white;
-    padding: 80px 0;
-    overflow: hidden;
-}
 
-.ingredients-slider {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
+/* certification section */
+    
+        /* Certification Section Styles */
+        .certifications-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-.ingredients-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 30px;
-    padding: 10px 5px;
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.ingredient-card {
-    flex: 0 0 calc(33.333% - 20px);
-    min-width: 280px;
-    text-align: center;
-    padding: 30px 20px;
-    border-radius: 15px;
-    background: var(--light);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
-.ingredient-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            line-height: 1.6;
+        }
 
-.ingredient-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 2rem;
-    color: var(--accent);
-    transition: all 0.3s ease;
-}
+        .certifications-horizontal-container {
+            overflow-x: auto;
+            padding: 20px 0;
+            margin: 0 -20px;
+            scrollbar-width: thin;
+            scrollbar-color: #3498db #f1f1f1;
+        }
 
-.ingredient-card:hover .ingredient-icon {
-    background: var(--accent);
-    color: white;
-    transform: rotate(10deg);
-}
+        .certifications-horizontal-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .certifications-horizontal-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .certifications-horizontal-container::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 10px;
+        }
+
+        .certifications-row {
+            display: flex;
+            gap: 25px;
+            padding: 0 20px;
+            width: max-content;
+        }
+
+        .cert-item {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 280px;
+            max-width: 320px;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid #3498db;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71, #9b59b6);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .cert-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cert-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+
+        .cert-item:hover .cert-icon {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .cert-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .cert-content {
+            flex: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cert-content h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .cert-item:hover .cert-content h3 {
+            color: #3498db;
+        }
+
+        .cert-content p {
+            color: #6c757d;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .cert-content a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .cert-content a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: auto;
+            align-self: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover .cert-badge {
+            background: #2ecc71;
+            transform: scale(1.1);
+        }
+
+        .scroll-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .scroll-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .scroll-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cert-item {
+                min-width: 260px;
+            }
+            
+            .scroll-indicators {
+                gap: 15px;
+            }
+            
+            .scroll-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certifications-section {
+                padding: 60px 15px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
 
 /* Benefits Section - Horizontal Slider */
 .benefits {

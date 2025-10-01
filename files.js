@@ -174,3 +174,46 @@ document.addEventListener('DOMContentLoaded', () => {
         initMobileScrollIndicator();
     }
 });
+
+
+
+// Simple scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.certifications-horizontal-container');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    container.scrollBy({ left: 300, behavior: 'smooth' });
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    container.scrollBy({ left: -300, behavior: 'smooth' });
+                });
+            }
+            
+            // Update dots based on scroll position
+            if (container) {
+                container.addEventListener('scroll', function() {
+                    const scrollPos = container.scrollLeft;
+                    const scrollWidth = container.scrollWidth - container.clientWidth;
+                    const dotIndex = Math.floor((scrollPos / scrollWidth) * dots.length);
+                    
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === dotIndex);
+                    });
+                });
+            }
+            
+            // Click on dots to scroll to position
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    const containerWidth = container.clientWidth;
+                    container.scrollTo({ left: index * containerWidth, behavior: 'smooth' });
+                });
+            });
+        });
